@@ -1,30 +1,45 @@
 package main;
-import views.*;
-import controllers.*;
+
 import models.*;
+import controllers.*;
+import views.*;
+
 /**
  *
- * @author Briceyda Angeles
+ * @author Briceyda Angeles Perez 
  */
+
 public class Main {
-
     
-    private static View_Clientes view_clientes;
-    private static ModelClientes model_clientes;
-    private static ControllerClientes controller_clientes;
-    private static ModelMain model_main;
-    private static ControllerMain controller_main;
-    
-    
-
-       public static void main (String bapgp[]){
-       view_clientes = new View_Clientes();
-       model_clientes = new ModelClientes();
-       controller_clientes = new ControllerClientes(model_clientes, view_clientes);
+    public static void main (String bap[]){
+        ModelMain model_main = new ModelMain();
+        ModelVerificacionUsuario model_verificacion_usuario = new ModelVerificacionUsuario(model_main);
+        
+        ViewMain view_main = new ViewMain();
+        ViewVerificacionUsuario view_verificacion_usuario = new ViewVerificacionUsuario();
+       // ViewAdmin view_admin = new ViewAdmin();
+        //ViewVendedor view_vendedor = new ViewVendedor();
+        
+        Object[] models = new Object[2];
+        Object[] views = new Object[4];
+        Object[] controllers = new Object[2];
+        
+        models[0] = model_main;
+        models[1] = model_verificacion_usuario;
+        
+        views[0] = view_main;
+        views[1] = view_verificacion_usuario;
+        //views[2] = view_admin;
+        //views[3] = view_vendedor;
+        
+        
+        ControllerMain controller_main = new ControllerMain(models, views);
+        controllers[0] = controller_main;
+        
+        ControllerVerificacionUsuario controller_verificacion_usuario = new ControllerVerificacionUsuario(models, views, controllers);
+        controllers[1] = controller_verificacion_usuario;
+        
        
-       model_main= new ModelMain();
-       controller_main = new ControllerMain(view_clientes, model_main);
-       
- 
     }
+    
 }

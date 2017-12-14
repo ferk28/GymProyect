@@ -35,79 +35,153 @@ public class View_RentaLocker extends javax.swing.JPanel {
         jbtn_agregar = new javax.swing.JButton();
         jbtn_eliminar = new javax.swing.JButton();
         jbtn_nuevo = new javax.swing.JButton();
+        jtf_id_locker = new javax.swing.JTextField();
+        jtf_id_cliente = new javax.swing.JTextField();
+        jtf_fecha_inicio = new javax.swing.JTextField();
+        jtf_fecha_fin = new javax.swing.JTextField();
+        jtf_monto = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+
+        setBackground(new java.awt.Color(0, 102, 153));
 
         jbtn_primero.setBackground(new java.awt.Color(0, 153, 153));
         jbtn_primero.setFont(new java.awt.Font("PakType Naskh Basic", 1, 14)); // NOI18N
-        jbtn_primero.setForeground(new java.awt.Color(255, 255, 255));
+        jbtn_primero.setForeground(new java.awt.Color(51, 51, 51));
         jbtn_primero.setText("|<");
 
         jbtn_anterior.setBackground(new java.awt.Color(0, 153, 153));
         jbtn_anterior.setFont(new java.awt.Font("PakType Naskh Basic", 1, 14)); // NOI18N
-        jbtn_anterior.setForeground(new java.awt.Color(255, 255, 255));
+        jbtn_anterior.setForeground(new java.awt.Color(51, 51, 51));
         jbtn_anterior.setText("Anterior");
 
         jbtn_siguiente.setBackground(new java.awt.Color(0, 153, 153));
         jbtn_siguiente.setFont(new java.awt.Font("PakType Naskh Basic", 1, 14)); // NOI18N
-        jbtn_siguiente.setForeground(new java.awt.Color(255, 255, 255));
+        jbtn_siguiente.setForeground(new java.awt.Color(51, 51, 51));
         jbtn_siguiente.setText("Siguiente");
 
         jbtn_ultimo.setBackground(new java.awt.Color(0, 153, 153));
         jbtn_ultimo.setFont(new java.awt.Font("PakType Naskh Basic", 1, 14)); // NOI18N
-        jbtn_ultimo.setForeground(new java.awt.Color(255, 255, 255));
+        jbtn_ultimo.setForeground(new java.awt.Color(51, 51, 51));
         jbtn_ultimo.setText(">|");
 
         jbtn_editar.setBackground(new java.awt.Color(0, 153, 153));
         jbtn_editar.setFont(new java.awt.Font("PakType Naskh Basic", 1, 14)); // NOI18N
-        jbtn_editar.setForeground(new java.awt.Color(255, 255, 255));
+        jbtn_editar.setForeground(new java.awt.Color(51, 51, 51));
         jbtn_editar.setText("Modificar");
 
         jbtn_agregar.setBackground(new java.awt.Color(0, 153, 153));
         jbtn_agregar.setFont(new java.awt.Font("PakType Naskh Basic", 1, 14)); // NOI18N
-        jbtn_agregar.setForeground(new java.awt.Color(255, 255, 255));
+        jbtn_agregar.setForeground(new java.awt.Color(51, 51, 51));
         jbtn_agregar.setText("Agregar");
 
         jbtn_eliminar.setBackground(new java.awt.Color(0, 153, 153));
         jbtn_eliminar.setFont(new java.awt.Font("PakType Naskh Basic", 1, 14)); // NOI18N
-        jbtn_eliminar.setForeground(new java.awt.Color(255, 255, 255));
+        jbtn_eliminar.setForeground(new java.awt.Color(51, 51, 51));
         jbtn_eliminar.setText("Eliminar");
 
         jbtn_nuevo.setBackground(new java.awt.Color(0, 153, 153));
         jbtn_nuevo.setFont(new java.awt.Font("PakType Naskh Basic", 1, 14)); // NOI18N
-        jbtn_nuevo.setForeground(new java.awt.Color(255, 255, 255));
+        jbtn_nuevo.setForeground(new java.awt.Color(51, 51, 51));
         jbtn_nuevo.setText("Nuevo");
+
+        jLabel1.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("iD_locker");
+
+        jLabel2.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("iD_cliente");
+
+        jLabel3.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Inicio");
+
+        jLabel4.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Fin");
+
+        jLabel5.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Monto");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(234, 234, 234)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(258, 258, 258)
                         .addComponent(jbtn_primero, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jbtn_anterior, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jbtn_siguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jbtn_ultimo, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jbtn_editar)
-                        .addGap(27, 27, 27)
-                        .addComponent(jbtn_agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29)
-                        .addComponent(jbtn_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(19, 19, 19)))
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(395, 395, 395)
-                .addComponent(jbtn_nuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(273, 273, 273))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(28, 28, 28)
+                                .addComponent(jbtn_anterior, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(34, 34, 34)
+                                .addComponent(jbtn_siguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jbtn_ultimo, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jbtn_editar)
+                                .addGap(27, 27, 27)
+                                .addComponent(jbtn_agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(29, 29, 29)
+                                .addComponent(jbtn_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(19, 19, 19))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(435, 435, 435)
+                                .addComponent(jbtn_nuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(219, 219, 219)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel5))
+                                .addGap(32, 32, 32)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jtf_id_locker, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jtf_fecha_inicio, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE)
+                                    .addComponent(jtf_fecha_fin)
+                                    .addComponent(jtf_monto)
+                                    .addComponent(jtf_id_cliente, javax.swing.GroupLayout.Alignment.TRAILING))))
+                        .addGap(165, 165, 165)))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(315, Short.MAX_VALUE)
+                .addGap(69, 69, 69)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(jtf_id_locker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel1))
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jtf_id_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel2))
+                                .addGap(27, 27, 27)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jtf_fecha_inicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel3))
+                                .addGap(18, 18, 18)
+                                .addComponent(jtf_fecha_fin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel4))
+                        .addGap(18, 18, 18)
+                        .addComponent(jtf_monto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
                 .addComponent(jbtn_nuevo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -126,6 +200,11 @@ public class View_RentaLocker extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     public javax.swing.JButton jbtn_agregar;
     public javax.swing.JButton jbtn_anterior;
     public javax.swing.JButton jbtn_editar;
@@ -134,5 +213,10 @@ public class View_RentaLocker extends javax.swing.JPanel {
     public javax.swing.JButton jbtn_primero;
     public javax.swing.JButton jbtn_siguiente;
     public javax.swing.JButton jbtn_ultimo;
+    private javax.swing.JTextField jtf_fecha_fin;
+    private javax.swing.JTextField jtf_fecha_inicio;
+    private javax.swing.JTextField jtf_id_cliente;
+    private javax.swing.JTextField jtf_id_locker;
+    private javax.swing.JTextField jtf_monto;
     // End of variables declaration//GEN-END:variables
 }

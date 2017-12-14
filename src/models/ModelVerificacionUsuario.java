@@ -22,7 +22,7 @@ public class ModelVerificacionUsuario {
     public void Verificar_Usuario(){
         try{
             contraseña_usuario_s = model_main.Cifrar(contraseña_usuario_s, "MD5");
-            model_main.setSql("SELECT COUNT(Usuario)AS Verificado FROM Usuarios WHERE Usuario = ? AND Contraseña = ?;");
+            model_main.setSql("SELECT COUNT(Usuario)AS Verificado FROM Usuarios WHERE Usuario = ? AND PASSWORD = ?;");
             model_main.Preparar_Statement();
             model_main.getSql_prepared_statement().setString(1, usuario);
             model_main.getSql_prepared_statement().setString(2, contraseña_usuario_s);
@@ -51,7 +51,7 @@ public class ModelVerificacionUsuario {
                 tipo_usuario = "Admin";
             } 
             else {
-                tipo_usuario = "Vendedor";
+                tipo_usuario = "Recepcionista";
             }
             System.out.println(tipo_usuario);
         }

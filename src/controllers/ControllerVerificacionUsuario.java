@@ -46,8 +46,8 @@ public class ControllerVerificacionUsuario {
             view_main.jmi_historial.setVisible(true); //
         }
         else{
+            view_main.jmi_usuarios.setVisible(false);
             view_main.jmi_menu.setVisible(true);
-            view_main.jmi_menu.setVisible(false);
         }
         view_verificacion_usuario.jtf_usuario.setText("");
         view_verificacion_usuario.jpd_password.setText("");

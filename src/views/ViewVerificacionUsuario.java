@@ -12,7 +12,7 @@ package views;
 public class ViewVerificacionUsuario extends javax.swing.JPanel {
 
     /**
-     * Creates new form Login
+     * Creates new form ViewVerificacionUsuario
      */
     public ViewVerificacionUsuario() {
         initComponents();
@@ -27,85 +27,73 @@ public class ViewVerificacionUsuario extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jbtn_enter = new javax.swing.JButton();
+        jlb_usuario = new javax.swing.JLabel();
+        jlb_contraseña = new javax.swing.JLabel();
         jtf_usuario = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jpd_password = new javax.swing.JPasswordField();
-
-        jLabel1.setText("jLabel1");
+        jpwd_contraseña = new javax.swing.JPasswordField();
+        jbtn_iniciar = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 102, 153));
+        setMaximumSize(new java.awt.Dimension(400, 300));
+        setMinimumSize(new java.awt.Dimension(400, 300));
 
-        jbtn_enter.setBackground(new java.awt.Color(0, 153, 153));
-        jbtn_enter.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
-        jbtn_enter.setForeground(new java.awt.Color(51, 51, 51));
-        jbtn_enter.setText("Entrar");
+        jlb_usuario.setFont(new java.awt.Font("PakType Naskh Basic", 1, 18)); // NOI18N
+        jlb_usuario.setText("Usuario:");
 
-        jLabel2.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(240, 240, 240));
-        jLabel2.setText("Usuario:");
+        jlb_contraseña.setFont(new java.awt.Font("PakType Naskh Basic", 1, 18)); // NOI18N
+        jlb_contraseña.setText("Contraseña:");
 
-        jLabel3.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(240, 240, 240));
-        jLabel3.setText("Password:");
+        jtf_usuario.setFont(new java.awt.Font("PakType Naskh Basic", 1, 18)); // NOI18N
+        jtf_usuario.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        jpd_password.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jpd_passwordActionPerformed(evt);
-            }
-        });
+        jpwd_contraseña.setFont(new java.awt.Font("PakType Naskh Basic", 1, 18)); // NOI18N
+        jpwd_contraseña.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        jbtn_iniciar.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 14)); // NOI18N
+        jbtn_iniciar.setText("Iniciar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(156, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3))
-                .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jtf_usuario, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
-                    .addComponent(jpd_password))
-                .addContainerGap(19, Short.MAX_VALUE))
+                    .addComponent(jlb_usuario)
+                    .addComponent(jlb_contraseña))
+                .addGap(18, 53, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jpwd_contraseña, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtf_usuario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jbtn_enter, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(103, 103, 103))
+                .addComponent(jbtn_iniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(56, 56, 56))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jtf_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2))
-                        .addGap(49, 49, 49))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel3)
-                        .addComponent(jpd_password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(44, 44, 44)
-                .addComponent(jbtn_enter, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(103, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jlb_usuario)
+                    .addComponent(jtf_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jlb_contraseña)
+                    .addComponent(jpwd_contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(34, 34, 34)
+                .addComponent(jbtn_iniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(92, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jpd_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jpd_passwordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jpd_passwordActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    public javax.swing.JLabel jLabel2;
-    public javax.swing.JLabel jLabel3;
-    public javax.swing.JButton jbtn_enter;
-    public javax.swing.JPasswordField jpd_password;
+    public javax.swing.JButton jbtn_iniciar;
+    public javax.swing.JLabel jlb_contraseña;
+    public javax.swing.JLabel jlb_usuario;
+    public javax.swing.JPasswordField jpwd_contraseña;
     public javax.swing.JTextField jtf_usuario;
     // End of variables declaration//GEN-END:variables
 }

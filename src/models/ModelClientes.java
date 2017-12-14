@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
  * @author Briceyda Angeles
  */
 public class ModelClientes {
-    private Connection conexion;
+/*    private Connection conexion;
     private Statement st;
     private ResultSet rs;
     private PreparedStatement ps;
@@ -198,5 +198,6 @@ public class ModelClientes {
             JOptionPane.showMessageDialog(null,"error 110" + e);
         }
     }
+*/
 }
 

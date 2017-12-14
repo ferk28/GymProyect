@@ -12,7 +12,7 @@ package views;
 public class ViewMain extends javax.swing.JFrame {
 
     /**
-     * Creates new form View_Menu
+     * Creates new form ViewMain
      */
     public ViewMain() {
         initComponents();
@@ -27,105 +27,64 @@ public class ViewMain extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jmi_iniciarsesion = new javax.swing.JMenu();
-        jmi_iniciar_sesion = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jmi_usuarios = new javax.swing.JMenuItem();
-        jmi_menu = new javax.swing.JMenu();
+        jmb_barra_menu = new javax.swing.JMenuBar();
+        jme_archivo = new javax.swing.JMenu();
+        jmi_verificacion_usuario = new javax.swing.JMenuItem();
         jmi_clientes = new javax.swing.JMenuItem();
-        jmi_renta = new javax.swing.JMenuItem();
-        jmi_asistencia = new javax.swing.JMenuItem();
-        jmi_membrecias = new javax.swing.JMenuItem();
+        jmi_membrecia = new javax.swing.JMenuItem();
+        jmi_asistencias = new javax.swing.JMenuItem();
+        jmi_rentas = new javax.swing.JMenuItem();
         jmi_salir = new javax.swing.JMenuItem();
-        jmi_historial = new javax.swing.JMenu();
-
-        jButton1.setText("jButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setMinimumSize(new java.awt.Dimension(400, 300));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/gym.jpg"))); // NOI18N
-        jLabel1.setText("jLabel1");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 480));
 
-        jmi_iniciarsesion.setText("Iniciar");
+        jme_archivo.setForeground(new java.awt.Color(0, 102, 153));
+        jme_archivo.setText("Archivo");
+        jme_archivo.setFont(new java.awt.Font("PakType Naskh Basic", 1, 14)); // NOI18N
 
-        jmi_iniciar_sesion.setText("IniciarSesion");
-        jmi_iniciarsesion.add(jmi_iniciar_sesion);
-
-        jMenuItem1.setText("Regresar");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
-            }
-        });
-        jmi_iniciarsesion.add(jMenuItem1);
-
-        jmi_usuarios.setText("Usuarios");
-        jmi_usuarios.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmi_usuariosActionPerformed(evt);
-            }
-        });
-        jmi_iniciarsesion.add(jmi_usuarios);
-
-        jMenuBar1.add(jmi_iniciarsesion);
-
-        jmi_menu.setText("Menu");
+        jmi_verificacion_usuario.setFont(new java.awt.Font("PakType Naskh Basic", 1, 14)); // NOI18N
+        jmi_verificacion_usuario.setForeground(new java.awt.Color(0, 102, 153));
+        jmi_verificacion_usuario.setText("Verificación de Usuario");
+        jme_archivo.add(jmi_verificacion_usuario);
 
         jmi_clientes.setText("Clientes");
-        jmi_clientes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmi_clientesActionPerformed(evt);
-            }
-        });
-        jmi_menu.add(jmi_clientes);
+        jme_archivo.add(jmi_clientes);
 
-        jmi_renta.setText("Rentas de Locker");
-        jmi_menu.add(jmi_renta);
+        jmi_membrecia.setText("Membrecia");
+        jme_archivo.add(jmi_membrecia);
 
-        jmi_asistencia.setText("Asistencias");
-        jmi_asistencia.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmi_asistenciaActionPerformed(evt);
-            }
-        });
-        jmi_menu.add(jmi_asistencia);
+        jmi_asistencias.setText("Asistencias");
+        jme_archivo.add(jmi_asistencias);
 
-        jmi_membrecias.setText("Membrecias");
-        jmi_menu.add(jmi_membrecias);
+        jmi_rentas.setText("Rentas");
+        jme_archivo.add(jmi_rentas);
 
+        jmi_salir.setFont(new java.awt.Font("PakType Naskh Basic", 1, 14)); // NOI18N
+        jmi_salir.setForeground(new java.awt.Color(0, 102, 153));
         jmi_salir.setText("Salir");
-        jmi_menu.add(jmi_salir);
+        jme_archivo.add(jmi_salir);
 
-        jMenuBar1.add(jmi_menu);
+        jmb_barra_menu.add(jme_archivo);
 
-        jmi_historial.setText("Historial");
-        jMenuBar1.add(jmi_historial);
+        setJMenuBar(jmb_barra_menu);
 
-        setJMenuBar(jMenuBar1);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
-
-    private void jmi_usuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_usuariosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jmi_usuariosActionPerformed
-
-    private void jmi_clientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_clientesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jmi_clientesActionPerformed
-
-    private void jmi_asistenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_asistenciaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jmi_asistenciaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -164,19 +123,14 @@ public class ViewMain extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton jButton1;
-    public javax.swing.JLabel jLabel1;
-    public javax.swing.JMenuBar jMenuBar1;
-    public javax.swing.JMenuItem jMenuItem1;
-    public javax.swing.JMenuItem jmi_asistencia;
+    private javax.swing.JLabel jLabel1;
+    public javax.swing.JMenuBar jmb_barra_menu;
+    public javax.swing.JMenu jme_archivo;
+    public javax.swing.JMenuItem jmi_asistencias;
     public javax.swing.JMenuItem jmi_clientes;
-    public javax.swing.JMenu jmi_historial;
-    public javax.swing.JMenuItem jmi_iniciar_sesion;
-    public javax.swing.JMenu jmi_iniciarsesion;
-    public javax.swing.JMenuItem jmi_membrecias;
-    public javax.swing.JMenu jmi_menu;
-    public javax.swing.JMenuItem jmi_renta;
+    public javax.swing.JMenuItem jmi_membrecia;
+    public javax.swing.JMenuItem jmi_rentas;
     public javax.swing.JMenuItem jmi_salir;
-    public javax.swing.JMenuItem jmi_usuarios;
+    public javax.swing.JMenuItem jmi_verificacion_usuario;
     // End of variables declaration//GEN-END:variables
 }

@@ -15,73 +15,184 @@ import javax.swing.JOptionPane;
  * @author Briceyda Angeles Perez
  */
 
+
 public class ModelMain {
-    private Connection sql_connection;
-    private Statement sql_statement;
-    private PreparedStatement sql_prepared_statement;
-    private ResultSet sql_result_set;
-    private String sql;
-    
+    private Connection  conexion;
+    private Statement   st;
+    private PreparedStatement ps;
+    private ResultSet   rs;
+    private String      sql;
+
     private MessageDigest md5;
     private StringBuilder string_builder;
     
-    public void Connect(){
-        try {
-            sql_connection = DriverManager.getConnection("jdbc:mysql://localhost/gymolympus","root","1234");
-            sql_statement = sql_connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error al conectar con la base de datos: " + e);
-        }
+
+    public MessageDigest getMd5() {
+        return md5;
+    }
+
+    public void setMd5(MessageDigest md5) {
+        this.md5 = md5;
+    }
+
+    public StringBuilder getString_builder() {
+        return string_builder;
+    }
+
+    public void setString_builder(StringBuilder string_builder) {
+        this.string_builder = string_builder;
     }
     
-    public void Ejecutar_Consulta() {
-        try {
-            Connect();
-            sql_result_set = sql_statement.executeQuery(sql);
-//            sql_connection.close();
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error al ejecutar consulta: " + e);
+    public Connection getConexion() {
+        return conexion;
+    }
+    public void setConexion(Connection conexion) {
+        this.conexion = conexion;
+    }
+    public Statement getSt() {
+        return st;
+    }
+    public void setSt(Statement st) {
+        this.st = st;
+    }
+    public PreparedStatement getPs() {
+        return ps;
+    }
+    public void setPs(PreparedStatement ps) {
+        this.ps = ps;
+    }
+    public ResultSet getRs() {
+        return rs;
+    }
+    public void setRs(ResultSet rs) {
+        this.rs = rs;
+    }
+    public String getSql() {
+        return sql;
+    }
+    
+    //SQL
+    public void setSql(String sql) {
+        this.sql = sql;
+    }
+
+    
+    public void Conectar(){
+    try{
+        conexion = DriverManager.getConnection("jdbc:mysql://localhost/gymolympus","root","1234");
+        st = conexion.createStatement();
+       
+        }catch(SQLException e){
+        JOptionPane.showMessageDialog(null,"Error 101" + e);
+        }    
+    }    
+    public void Ejecutar_Consulta(){
+        try{
+            Conectar();
+            rs = st.executeQuery(sql);
+            //conexion.close();
+        }
+        catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error al ejecutar consulta: " +  e);
         }
     }
     
     public void Ejecutar_Consulta_PS() {
         try {
-            sql_result_set = sql_prepared_statement.executeQuery();
+            rs = ps.executeQuery();
             //sql_connection.close();
         } 
         catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error al ejecutar consulta: " + e);
         }
     }
-
-    public void Ejecutar_Actualizacion() {
-        try {
-            sql_prepared_statement.executeUpdate();
-            //sql_connection.close();
-        } catch (SQLException e) {
+    
+    public void Ejecutar_Actualizacion(){
+        try{
+            ps.executeUpdate();
+            //conexion.close();
+        }
+        catch(SQLException e){
             JOptionPane.showMessageDialog(null, "Error al ejecutar actualización: " + e);
         }
     }
-
-    public void Ejecutar_Sentencia() {
-        try {
-            Connect();
-            sql_statement.execute(sql);
-            //sql_connection.close();
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "error" + e);
+    
+    public void Ejecutar_Sentencia(){
+        try{
+            Conectar();
+            st.execute(sql);
+            //conexion.close();
+        }
+        catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "nel carnal" + e);
         }
     }
-
-    public void Preparar_Statement() {
-        try {
-            Connect();
-            sql_prepared_statement = sql_connection.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
-        } catch (SQLException e) {
+    
+    public void Preparar_Statement(){
+        try{
+            Conectar();
+            ps = conexion.prepareStatement(sql);
+        }
+        catch(SQLException e){
             JOptionPane.showMessageDialog(null, "Error al preparar statement: " + e);
         }
     }
     
+    public void Mover_Primero(){
+        try{
+            if(rs.isFirst() == false){
+                rs.first();
+            }
+            else{
+                //
+            }
+        }
+        catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error al mover el cursor al primer registro:" + e);
+        }
+    }
+    
+    public void Mover_Anterior(){
+        try{
+            if(rs.isFirst() == false){
+                rs.previous();
+            }
+            else{
+                //
+            }
+        }
+        catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error al mover el cursor al registro anterior: " + e);
+        }
+    }
+    
+    public void Mover_Siguiente(){
+        try{
+            if(rs.isLast() == false){
+                rs.next();
+            }
+            else{
+                //
+            }
+        }
+        catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error al mover el cursor al registro siguiente: " + e);
+        }
+    }
+    
+    public void Mover_Ultimo(){
+        try{
+            if(rs.isLast() == false){
+                rs.last();
+            }
+            else{
+                //
+            }
+        }
+        catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error al mover el cursor al último registro: " + e);
+        }
+    }
     public String Cifrar(String texto, String tipo_cifrado){
         try{
             md5 = MessageDigest.getInstance(tipo_cifrado);
@@ -97,47 +208,5 @@ public class ModelMain {
         }
         return "";
     }
-
-    public Connection getSql_connection() {
-        return sql_connection;
-    }
-
-    public void setSql_connection(Connection sql_connection) {
-        this.sql_connection = sql_connection;
-    }
-
-    public Statement getSql_statement() {
-        return sql_statement;
-    }
-
-    public void setSql_statement(Statement sql_statement) {
-        this.sql_statement = sql_statement;
-    }
-
-    public PreparedStatement getSql_prepared_statement() {
-        return sql_prepared_statement;
-    }
-
-    public void setSql_prepared_statement(PreparedStatement sql_prepared_statement) {
-        this.sql_prepared_statement = sql_prepared_statement;
-    }
-
-    public ResultSet getSql_result_set() {
-        return sql_result_set;
-    }
-
-    public void setSql_result_set(ResultSet sql_result_set) {
-        this.sql_result_set = sql_result_set;
-    }
-
-    public String getSql() {
-        return sql;
-    }
-
-    public void setSql(String sql) {
-        this.sql = sql;
-    }
-    
     
 }
-   

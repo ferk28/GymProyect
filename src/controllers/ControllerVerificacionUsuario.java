@@ -3,12 +3,10 @@ package controllers;
 import models.ModelVerificacionUsuario;
 import views.ViewMain;
 import views.ViewVerificacionUsuario;
-
 /**
  *
- * @author Briceyda Angeles Perez 
+ * @author Briceyda Angeles
  */
-
 public class ControllerVerificacionUsuario {
     
     private final ModelVerificacionUsuario model_verificacion_usuario;
@@ -29,12 +27,12 @@ public class ControllerVerificacionUsuario {
     }
     
     public void Definir_Action_Listeners(){
-        view_verificacion_usuario.jbtn_enter.addActionListener(e -> jbtn_iniciarMouseClicked());
+        view_verificacion_usuario.jbtn_iniciar.addActionListener(e -> jbtn_iniciarMouseClicked());
     }
     
     public void setDatos(){
         model_verificacion_usuario.setUsuario(view_verificacion_usuario.jtf_usuario.getText());
-        model_verificacion_usuario.setContraseña_Usuario(view_verificacion_usuario.jpd_password.getPassword());
+        model_verificacion_usuario.setContraseña_Usuario(view_verificacion_usuario.jpwd_contraseña.getPassword());
     }
     
     public void jbtn_iniciarMouseClicked(){
@@ -42,14 +40,13 @@ public class ControllerVerificacionUsuario {
         model_verificacion_usuario.Verificar_Usuario();
         model_verificacion_usuario.Verificar_Tipo_Usuario();
         if(model_verificacion_usuario.getTipo_Usuario().equals("Admin")){
-            view_main.jmi_menu.setVisible(true);
-            view_main.jmi_historial.setVisible(true); //
+            view_main.jmi_clientes.setVisible(true);
+            //desbloquea jmi relacionado con el administrador
         }
         else{
-            view_main.jmi_usuarios.setVisible(false);
-            view_main.jmi_menu.setVisible(true);
+            //desbloquea jmi's relacionado con empleado
         }
         view_verificacion_usuario.jtf_usuario.setText("");
-        view_verificacion_usuario.jpd_password.setText("");
+        view_verificacion_usuario.jpwd_contraseña.setText("");
     }
 }

@@ -1,25 +1,31 @@
 
 package models;
 
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.sql.DriverManager;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import javax.swing.table.TableModel;
+import net.proteanit.sql.DbUtils;
+
 /**
  *
  * @author Briceyda Angeles
  */
+
+
 public class ModelClientes {
-/*    private Connection conexion;
-    private Statement st;
-    private ResultSet rs;
-    private PreparedStatement ps;
-    private String sql; 
+    private final ModelMain model_main;        
+
+    public ModelClientes(ModelMain model_main){
+        this.model_main = model_main;
+    }
+    
+private String sql; 
     
     private int id_cliente;
     private String nombre;
@@ -28,176 +34,195 @@ public class ModelClientes {
     private String telefono;
     private String direccion;
     private String monto;
-    private String fechain;
+    private String fecha;
+    private TableModel tabla_clientes;
+    private String buscar;
+    private String tipo;
+ 
+ 
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+    public void setBuscar(String buscar) {
+        this.buscar = buscar;
+    }
+
+    public String getBuscar() {
+        return buscar;
+    }
+
+    public void setSql(String sql) {
+        this.sql = sql;
+    }
     
-    public void SetId_cliente(int id_cliente){
-        this.id_cliente = id_cliente;
+    public TableModel getTabla_clientes(){
+       return tabla_clientes;
     }
-    public void SetNombre(String nombre){
-        this.nombre = nombre;
-    }
-    public void SetApellido1(String apellido1){
-        this.apellido1 = apellido1;
-    }
-    public void SetApellido2(String apellido2){
-        this.apellido2 = apellido2;
-    }
-    public void SetTelefono(String telefono){
-        this.telefono = telefono;
-    }
-    public void SetDireccion(String apellido2){
-        this.apellido2 = apellido2;
-    }
-    public void SetMonto(String monto){
-        this.monto = monto;
-    }
-     public void SetFechaIn(String fechain){
-        this.fechain = fechain;
-     }
-    public int getId_cliente(){
+    
+    public int getId_cliente() {
         return id_cliente;
     }
-    public String getNombre(){
+    public void setId_cliente(int id_cliente) {
+        this.id_cliente = id_cliente;
+    }
+    public String getNombre() {
         return nombre;
     }
-     public String getApellido1(){
-        return nombre;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
-      public String getApellido2(){
-        return nombre;
+    public String getApellido1() {
+        return apellido1;
     }
-    public String getTelefono(){
-        return telefono;
-    }
-    public String getDireccion(){
-        return direccion;
-    }
-    public String getMonto(){
-        return monto;
-    }
-    public String getFechaIn(){
-        return fechain;
+    public void setApellido1(String apellido1) {
+        this.apellido1 = apellido1;
     }
     
-    public void Conectar(){
-    try{
-        conexion = DriverManager.getConnection("jdbc:mysql://localhost/GYMOLYMPUS","root","1234");
-        st = conexion.createStatement();
-        }catch(SQLException e){
-        JOptionPane.showMessageDialog(null,"Error 101" + e);
-        }    
+     public String getApellido2() {
+        return apellido2;
     }
-   public void llenarValores(){
+    public void setApellido2(String apellido2) {
+        this.apellido2 = apellido2;
+    }
+    public String getTelefono() {
+        return telefono;
+    }
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+    public String getDireccion() {
+        return direccion;
+    }
+    public void setDireccion(String direccion ) {
+        this.direccion = direccion;
+    }
+    public String getMonto() {
+        return monto;
+    }
+    public void setMonto(String monto ) {
+        this.monto = monto;
+    }
+    public String getFecha() {
+        return fecha;
+    }
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+    
+    
+    
+   public void AsignarDatos(){
         try{
-            SetId_cliente(rs.getInt("id_cliente"));
-            SetNombre(rs.getString("Nombre"));
-            SetApellido1(rs.getString("apellido_pa"));
-            SetApellido2(rs.getString("apellido_ma"));
-            SetTelefono(rs.getString("telefono"));
-            SetDireccion(rs.getString("direccion"));
-            SetApellido2(rs.getString("apellido_ma"));
+            id_cliente = model_main.getRs().getInt("id_cliente");
+            nombre = model_main.getRs().getString("nombre");
+            apellido1 = model_main.getRs().getString("apellido_pa");
+            apellido2 = model_main.getRs().getString("apellido_ma");
+            telefono = model_main.getRs().getString("telefono");
+            direccion = model_main.getRs().getString("direccion");
+            monto=model_main.getRs().getString("monto");
+            tipo=model_main.getRs().getString("tipoc");
+            fecha =model_main.getRs().getString("fecha_de_ingreso");
+            
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null, "error 102" + e);
         }
     }    
-    public void moverPrimero(){
-        try{
-            rs.first();
-            llenarValores();
-        }catch(SQLException e){
-            JOptionPane.showMessageDialog(null,"error 103" + e);
+   
+   public void ObtenerClientes (){
+       try{
+        model_main.setSql("SELECT * FROM CLIENTE;");
+        model_main.Preparar_Statement();
+        model_main.Ejecutar_Consulta_PS();
+        model_main.getRs().first();
+        AsignarDatos();
+        }
+        catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "Error al obtener Clientes: " + e);
         }
     }
-    public void moverUltimo(){
-        try{
-            rs.last();
-            llenarValores();
-        }catch(SQLException e){
-            JOptionPane.showMessageDialog(null,"error 104" + e);
-        }
+   
+    public void llenarActualizarDatos(){
+        model_main.setSql("SELECT * FROM cliente;");
+        model_main.Ejecutar_Consulta();
+        tabla_clientes = DbUtils.resultSetToTableModel(model_main.getRs());
+
     }
-    public void moverSiguiente(){
-        try{
-            if(rs.isLast() == false)
-            rs.next();
-            llenarValores();
-        }catch(SQLException e){
-            JOptionPane.showMessageDialog(null,"error 105" + e);
-        }
-    }
-    public void moverAnterior(){
-        try{
-            if(rs.isFirst() == false)
-            rs.previous();
-            llenarValores();
-        }catch(SQLException e){
-            JOptionPane.showMessageDialog(null,"error 106" + e);
-        }
+    public void buscar_jtable(){
+
+        model_main.setSql("SELECT * FROM cliente WHERE nombre LIKE ('%"+buscar+"%') OR apellido_pa LIKE ('%"+buscar+"%');");       
+        model_main.Ejecutar_Consulta();
+        tabla_clientes = DbUtils.resultSetToTableModel(model_main.getRs());
+        model_main.Mover_Primero();
+        AsignarDatos();
+        System.out.println("buscar jtable");
     }    
 
-    public void seleccionarTodos(){
-        try{
-            sql="SELECT * FROM CLIENTE;";
-            ps = conexion.prepareStatement(sql);
-            rs = ps.executeQuery();
-            moverPrimero();
-            
-        }catch(SQLException e){
-            JOptionPane.showMessageDialog(null,"error 107" + e);
-        }
-    }
     public void insertar(){
         try{
-            sql= "INSERT INTO CLIENTE(nombre, telefono,apellido_pa, apellido_ma,telefono,direccion,monto,fecha_de_ingreso) VALUES (?,?,?,?,?,?);";
-            ps = conexion.prepareStatement(sql);
-            ps.setString(1, nombre);
-            ps.setString(2, apellido1);
-            ps.setString(3, apellido2);
-            ps.setString(4, telefono);
-            ps.setString(5, direccion);
-            ps.setString(6, monto);
-            ps.setString(7, fechain);
-            ps.executeUpdate();
-            moverPrimero();
-            seleccionarTodos();
-            
+            model_main.setSql("INSERT INTO cliente(nombre,apellido_pa,apellido_ma, telefono, direccion, monto,fecha_de_ingreso,tipoc) VALUES (?,?,?,?,?,?,?,?);");
+            model_main.Preparar_Statement();
+            model_main.getPs().setString(1, nombre);
+            model_main.getPs().setString(2, apellido1);
+            model_main.getPs().setString(3, apellido2);
+            model_main.getPs().setString(4, telefono);
+            model_main.getPs().setString(5, direccion);
+            model_main.getPs().setString(6, monto);
+            model_main.getPs().setString(7, fecha);
+            model_main.getPs().setString(8, tipo);
+            model_main.Ejecutar_Actualizacion();
+
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null,"error 108" + e);
         }
     }
     public void borrar(){
         try{
-            sql="DELETE FROM CLIENTE WHERE id_cliente = ?;";
-            ps = conexion.prepareStatement(sql);
-            ps.setInt(1, id_cliente);
-            ps.executeQuery();
-            moverPrimero();
-            seleccionarTodos();
+            model_main.setSql("DELETE FROM cliente WHERE id_cliente = ?;");
+            model_main.Preparar_Statement();
+            model_main.getPs().setInt(1, id_cliente);
+            model_main.Ejecutar_Actualizacion();
             
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null,"error 109" + e);
         }
     }
-    public void actualizar(){
+    public void modificar(){
         try{
-            sql= "UPDATE CLIENTE SET nombre=? , apellido1=? ,apellido2=?, telefono=?, direccion=?, monto=?, fecha_de_ingreso=?,WHERE id_cliente=?;";
-            ps = conexion.prepareStatement(sql);
-           
-            ps.setString(1, nombre);
-            ps.setString(2, apellido1);
-            ps.setString(3, apellido2);
-            ps.setString(4, telefono);
-            ps.setString(5, direccion);
-            ps.setString(6, monto);
-            ps.setString(7, fechain);
-            ps.executeUpdate();
-            moverPrimero();
-            seleccionarTodos();
-            
+            model_main.setSql("UPDATE cliente SET nombre=? , apellido_pa=? , apellido_ma=? , telefono=?, direccion=?,monto=?, fecha_de_ingreso=?, tipoc=? WHERE id_cliente=?;");
+            model_main.Preparar_Statement();
+            model_main.getPs().setString(1, nombre);
+            model_main.getPs().setString(2, apellido1);
+            model_main.getPs().setString(3, apellido2);
+            model_main.getPs().setString(4, telefono );
+            model_main.getPs().setString(5, direccion);
+            model_main.getPs().setString(6, monto);
+            model_main.getPs().setString(7, fecha);
+            model_main.getPs().setString(8, tipo);
+            model_main.getPs().setInt(9, id_cliente);
+            model_main.Ejecutar_Actualizacion();
+
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null,"error 110" + e);
         }
     }
-*/
-}
+        public void buscar(){
+        try {
+            model_main.setSql("SELECT * FROM cliente WHERE nombre LIKE CONCAT('%',? '%') OR apellido_pa LIKE CONCAT('%',? '%');");            
+            model_main.Preparar_Statement();
+            model_main.getPs().setString(1, buscar);
+            model_main.getPs().setString(2, buscar);
+            model_main.Ejecutar_Consulta_PS();
+            System.out.println(sql);
+            tabla_clientes = DbUtils.resultSetToTableModel(model_main.getRs());
+        } catch (SQLException e) {
+            
+            JOptionPane.showMessageDialog(null, "error al buscar" + e);
+        }
+        
 
+    }
+}

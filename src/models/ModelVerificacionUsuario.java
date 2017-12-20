@@ -96,12 +96,12 @@ public class ModelVerificacionUsuario {
                 tipo_usuario = "Admin";
             } 
             else {
-                tipo_usuario = "Vendedor";
+                tipo_usuario = "Recepcion";
             }
             System.out.println(tipo_usuario);
         }
         catch(SQLException e){
-            //
+            JOptionPane.showMessageDialog(null, "error al comprobar tipo usuario" + e);
         }
     }
 }

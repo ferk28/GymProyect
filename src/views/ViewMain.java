@@ -27,19 +27,28 @@ public class ViewMain extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
         jLabel1 = new javax.swing.JLabel();
         jmb_barra_menu = new javax.swing.JMenuBar();
         jme_archivo = new javax.swing.JMenu();
         jmi_verificacion_usuario = new javax.swing.JMenuItem();
+        jmi_salir = new javax.swing.JMenuItem();
+        jm_sistema = new javax.swing.JMenu();
         jmi_clientes = new javax.swing.JMenuItem();
         jmi_membrecia = new javax.swing.JMenuItem();
         jmi_asistencias = new javax.swing.JMenuItem();
         jmi_rentas = new javax.swing.JMenuItem();
-        jmi_salir = new javax.swing.JMenuItem();
+        jmi_regresar = new javax.swing.JMenuItem();
+
+        jMenu1.setText("jMenu1");
+
+        jMenu2.setText("jMenu2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(400, 300));
 
+        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/gym.jpg"))); // NOI18N
 
         jme_archivo.setForeground(new java.awt.Color(0, 102, 153));
@@ -51,18 +60,6 @@ public class ViewMain extends javax.swing.JFrame {
         jmi_verificacion_usuario.setText("Verificación de Usuario");
         jme_archivo.add(jmi_verificacion_usuario);
 
-        jmi_clientes.setText("Clientes");
-        jme_archivo.add(jmi_clientes);
-
-        jmi_membrecia.setText("Membrecia");
-        jme_archivo.add(jmi_membrecia);
-
-        jmi_asistencias.setText("Asistencias");
-        jme_archivo.add(jmi_asistencias);
-
-        jmi_rentas.setText("Rentas");
-        jme_archivo.add(jmi_rentas);
-
         jmi_salir.setFont(new java.awt.Font("PakType Naskh Basic", 1, 14)); // NOI18N
         jmi_salir.setForeground(new java.awt.Color(0, 102, 153));
         jmi_salir.setText("Salir");
@@ -70,17 +67,42 @@ public class ViewMain extends javax.swing.JFrame {
 
         jmb_barra_menu.add(jme_archivo);
 
+        jm_sistema.setText("Sistema");
+
+        jmi_clientes.setText("Clientes");
+        jm_sistema.add(jmi_clientes);
+
+        jmi_membrecia.setText("Membrecia");
+        jm_sistema.add(jmi_membrecia);
+
+        jmi_asistencias.setText("Asistencias");
+        jm_sistema.add(jmi_asistencias);
+
+        jmi_rentas.setText("Rentas");
+        jm_sistema.add(jmi_rentas);
+
+        jmi_regresar.setText("Regresar");
+        jm_sistema.add(jmi_regresar);
+
+        jmb_barra_menu.add(jm_sistema);
+
         setJMenuBar(jmb_barra_menu);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(183, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 667, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(137, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(64, 64, 64))
         );
 
         pack();
@@ -124,11 +146,15 @@ public class ViewMain extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    public javax.swing.JMenu jm_sistema;
     public javax.swing.JMenuBar jmb_barra_menu;
     public javax.swing.JMenu jme_archivo;
     public javax.swing.JMenuItem jmi_asistencias;
     public javax.swing.JMenuItem jmi_clientes;
     public javax.swing.JMenuItem jmi_membrecia;
+    private javax.swing.JMenuItem jmi_regresar;
     public javax.swing.JMenuItem jmi_rentas;
     public javax.swing.JMenuItem jmi_salir;
     public javax.swing.JMenuItem jmi_verificacion_usuario;

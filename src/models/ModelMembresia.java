@@ -32,16 +32,14 @@ private String sql;
     private String tipoc;
     private TableModel tabla_membresia;
  
-    private Connection conexion;
    public TableModel getTabla_membresia(){
        return tabla_membresia;
     }
     
- 
      public String getFechaIn() {
         return fechaini;
     }
-
+     
     public String getId_membresia() {
         return id_membresia;
     }
@@ -62,8 +60,6 @@ private String sql;
         this.tipoc = tipoc;
     }
     
-    
-
     public String getId_cliente() {
         return id_cliente;
     }
@@ -76,8 +72,6 @@ private String sql;
         return tipom;
     }
     
-    
-
     public void setFechaIn(String fechaini) {
         this.fechaini = fechaini;
     }
@@ -89,67 +83,80 @@ private String sql;
     public String getMonto() {
         return monto;
     }
+    
     public void setMonto(String monto ) {
         this.monto = monto;
     }
+    
     public String getFechaFin() {
         return fechafin;
     }
+    
     public void setFechaFin(String fechafin) {
         this.fechafin = fechafin;
     }
   
     public void ObtenerMembresias(){
         try{
-        model_main.setSql("SELECT * FROM Membrecia;");
-        model_main.Preparar_Statement();
-        model_main.Ejecutar_Consulta_PS();
-        model_main.getRs().first();
-        AsignarDatos();
+            model_main.setSql("SELECT * FROM MEMBRECIA;");
+            model_main.Preparar_Statement();
+            model_main.Ejecutar_Consulta_PS();
+            tabla_membresia = DbUtils.resultSetToTableModel(model_main.getRs());
+            model_main.getRs().first();
+            AsignarDatos();
         }
         catch(SQLException e){
             JOptionPane.showMessageDialog(null, "Error al obtener membresias: " + e);
         }
     }
-    public void ActualizarTabla(){
-        model_main.setSql("SELECT * FROM Membrecia;");
-        model_main.Preparar_Statement();
-        model_main.Ejecutar_Consulta();
-        tabla_membresia = DbUtils.resultSetToTableModel(model_main.getRs());
-    }
     
-    
-    
-    public void ActuliazarComboClientes(javax.swing.JComboBox ComboCliente){
+    public void ActualizarComboClientes(javax.swing.JComboBox ComboCliente){
         try{
-            model_main.setSql("select ID_CLIENTE from cliente order by id_cliente asc;");
+            model_main.setSql("select ID_CLIENTE from CLIENTE order by id_cliente asc;");
             model_main.Preparar_Statement();
             model_main.Ejecutar_Consulta_PS();
             ComboCliente.removeAllItems();
+            
             while(model_main.getRs().next()){
-                ComboCliente.addItem(model_main.getRs().getString("ID_CLIENTE"));
+                ComboCliente.addItem("" + model_main.getRs().getString("ID_CLIENTE"));
             }
-            ComboCliente.setSelectedIndex(0);
+            
+            model_main.getConexion().close();
         }
-            catch(SQLException e){
-                //
+        catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error al llenar combo de clientes: " + e);
         }
     }
-       public void ObtenerTipoCliente(String id_cliente){ 
-        try{
+    
+    public void ObtenerTipoCliente(String id_cliente) {
+        try {
             model_main.setSql("select TIPOC from CLIENTE where ID_CLIENTE =?;");
             model_main.Preparar_Statement();
             model_main.getPs().setString(1, id_cliente);
-            model_main.Ejecutar_Consulta_PS();
-            model_main.getRs().first();
-            tipoc=model_main.getRs().getString("TIPOC");
-        }catch(SQLException e){
-        //JOptionPane.showMessageDialog(null, "error 180" + e);
+            model_main.Ejecutar_Consulta_PS2();
+            model_main.getRs2().first();
+            tipoc = model_main.getRs2().getString("TIPOC");
+        } 
+        catch (SQLException e) {
+            //JOptionPane.showMessageDialog(null, "error 180" + e);
+        }
     }
-       }
-        
-        
-      
+    /*
+     public void ObtenerNombreCliente(String nombre) {
+        try {
+            model_main.setSql("select NOMBRE from CLIENTE where ID_CLIENTE =?;");
+            model_main.Preparar_Statement();
+            model_main.getPs().setString(1, id_cliente);
+            model_main.Ejecutar_Consulta_PS2();
+            model_main.getRs2().first();
+            nombre = model_main.getRs2().getString("NOMBRE");
+        } 
+        catch (SQLException e) {
+            //JOptionPane.showMessageDialog(null, "error 180" + e);
+        }
+    }
+       
+        */
    public void AsignarDatos(){
         try{
             id_membresia = model_main.getRs().getString("id_membrecia");
@@ -159,16 +166,15 @@ private String sql;
             fechaini = model_main.getRs().getString("fecha_inicial");
             fechafin = model_main.getRs().getString("fecha_final");
             monto=model_main.getRs().getString("monto");
-            
-            
-        }catch(SQLException e){
+        }
+        catch(SQLException e){
             JOptionPane.showMessageDialog(null, "error 102.2" + e);
         }
     }    
    
     public void insertar(){
         try{
-            model_main.setSql("INSERT INTO membrecia(id_cliente,  tipoc, fecha_inicial, fecha_final,  tipo_de_membrecia, monto ) VALUES (?,?,?,?,?,?);");
+            model_main.setSql("INSERT INTO MEMBRECIA(id_cliente,  tipoc, fecha_inicial, fecha_final,  tipo_de_membrecia, monto ) VALUES (?,?,?,?,?,?);");
             model_main.Preparar_Statement();
             model_main.getPs().setString(1, id_cliente);
             model_main.getPs().setString(2, tipoc);
@@ -176,47 +182,37 @@ private String sql;
             model_main.getPs().setString(4, fechafin);
             model_main.getPs().setString(5, tipom);
             model_main.getPs().setString(6, monto);
-            
             model_main.Ejecutar_Actualizacion();
-
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null,"error 108" + e);
         }
     }
+    
     public void borrar(){
         try{
-            model_main.setSql("DELETE FROM membrecia WHERE id_membresia = ?;");
+            model_main.setSql("DELETE FROM MEMBRECIA WHERE id_membrecia = ?;");
             model_main.Preparar_Statement();
             model_main.getPs().setString(1, id_membresia);
-            model_main.Ejecutar_Actualizacion();
-            
+            model_main.Ejecutar_Actualizacion(); 
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null,"error 109" + e);
         }
     }
+    
     public void modificar(){
         try{
-            model_main.setSql("UPDATE membrecia SET id_cliente=?, tipom=? , tipoc=? , monto=?, fecha_inicial=?,fecha_final=?,  WHERE id_membresia=?;");
+            model_main.setSql("UPDATE MEMBRECIA SET id_cliente=?, tipoc=?, fecha_inicial=?, fecha_final=?, tipo_de_membrecia=?, monto=?  WHERE id_membrecia=?;");
             model_main.Preparar_Statement();
-            model_main.getPs().setString(5, id_cliente);
-            model_main.getPs().setString(1, tipom);
+            model_main.getPs().setString(1, id_cliente);
             model_main.getPs().setString(2, tipoc);
-            model_main.getPs().setString(4, monto);
-            model_main.getPs().setString(5, fechaini);
-            model_main.getPs().setString(6, fechafin);
+            model_main.getPs().setString(3, fechaini);
+            model_main.getPs().setString(4, fechafin);
+            model_main.getPs().setString(5, tipom);
+            model_main.getPs().setString(6, monto);
+            model_main.getPs().setString(7, id_membresia);
             model_main.Ejecutar_Actualizacion();
-
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null,"error 110" + e);
         }
     }
 }
-/**********************************BOTONES NAVEGACION **********************************************/    
-
-
-    
-    
-    
-    
-    
-

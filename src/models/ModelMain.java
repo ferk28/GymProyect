@@ -21,6 +21,7 @@ public class ModelMain {
     private Statement   st;
     private PreparedStatement ps;
     private ResultSet   rs;
+    private ResultSet   rs2;
     private String      sql;
 
     private MessageDigest md5;
@@ -67,6 +68,15 @@ public class ModelMain {
     public void setRs(ResultSet rs) {
         this.rs = rs;
     }
+
+    public ResultSet getRs2() {
+        return rs2;
+    }
+
+    public void setRs2(ResultSet rs2) {
+        this.rs2 = rs2;
+    }
+    
     public String getSql() {
         return sql;
     }
@@ -79,27 +89,27 @@ public class ModelMain {
     
     public void Conectar(){
     try{
-        conexion = DriverManager.getConnection("jdbc:mysql://localhost/gymolympus","root","1234");
+        conexion = DriverManager.getConnection("jdbc:mysql://localhost/GYMOLYMPUS","root","1234");
         st = conexion.createStatement();
        
         }catch(SQLException e){
         JOptionPane.showMessageDialog(null,"Error 101" + e);
         }    
     }    
-    public void Ejecutar_Consulta(){
-        try{
-            Conectar();
-            rs = st.executeQuery(sql);
-            //conexion.close();
-        }
-        catch(SQLException e){
-            JOptionPane.showMessageDialog(null, "Error al ejecutar consulta: " +  e);
-        }
-    }
     
     public void Ejecutar_Consulta_PS() {
         try {
             rs = ps.executeQuery();
+            //sql_connection.close();
+        } 
+        catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error al ejecutar consulta: " + e);
+        }
+    }
+    
+    public void Ejecutar_Consulta_PS2() {
+        try {
+            rs2 = ps.executeQuery();
             //sql_connection.close();
         } 
         catch (SQLException e) {

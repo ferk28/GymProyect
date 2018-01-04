@@ -182,8 +182,6 @@ public class View_Membresia extends javax.swing.JPanel {
         jtf_usuario_asigno.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
         jtf_usuario_asigno.setForeground(new java.awt.Color(255, 255, 255));
 
-        jcb_id_cliente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jcb_tipo_mem.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "VISITA", "SEMANA", "MES", "AÑO" }));
 
         jtf_tipoc.setBackground(new java.awt.Color(0, 51, 153));

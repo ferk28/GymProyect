@@ -52,7 +52,7 @@ public class ControllerVerificacionUsuario {
         }
         else{
             //desbloquea jmi's relacionado con empleado
-            view_main.jme_archivo.setVisible(true);
+            view_main.jme_archivo.setVisible(false);
             view_main.jm_sistema.setVisible(true);
             view_main.jmi_asistencias.setVisible(true);
             view_main.jmi_rentas.setVisible(true);

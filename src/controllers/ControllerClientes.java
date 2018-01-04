@@ -28,7 +28,6 @@ public ControllerClientes(Object models[], Object views[], Object controllers[])
 
 public void initView(){
         view_clientes.addFocusListener(this);
-        
         view_clientes.jbtn_primero.addActionListener(e-> jbtn_primero_click());
         view_clientes.jbtn_ultimo.addActionListener(e-> jbtn_ultimo_click());
         view_clientes.jbtn_agregar.addActionListener(e-> jbtn_agregar_click());
@@ -37,10 +36,9 @@ public void initView(){
         view_clientes.jbtn_nuevo.addActionListener(e-> jbtn_nuevo_click());         
         view_clientes.jbtn_siguiente.addActionListener(e-> jbtn_siguiente_click());
         view_clientes.jbtn_anterior.addActionListener(e-> jbtn_anterior_click());
-        view_clientes.jbtn_buscar.addActionListener(e-> jbtn_buscar_click());
-        
-           
+        view_clientes.jbtn_buscar.addActionListener(e-> jbtn_buscar_click());    
     }
+
   public void getValores(){
         view_clientes.jtf_id_cliente.setText("" + model_clientes.getId_cliente());
         view_clientes.jtf_nombre_cliente.setText(model_clientes.getNombre());
@@ -54,7 +52,7 @@ public void initView(){
        
   }
    public void setValores(){
-        model_clientes.setId_cliente(Integer.parseInt(view_clientes.jtf_id_cliente.getText()));
+        model_clientes.setId_cliente(view_clientes.jtf_id_cliente.getText());
         model_clientes.setNombre(view_clientes.jtf_nombre_cliente.getText());
         model_clientes.setApellido1(view_clientes.jtf_apellido1.getText());
         model_clientes.setApellido2(view_clientes.jtf_apellido2.getText());
@@ -65,12 +63,11 @@ public void initView(){
         model_clientes.setBuscar(view_clientes.jtf_buscar.getText());        
     }    
     public void ActualizarInterfaz(){
-        model_clientes.llenarActualizarDatos();
+        model_clientes.ObtenerClientes();
         view_clientes.jtb_cliente.setModel(model_clientes.getTabla_clientes());
         getValores();
     }
      public void jbtn_nuevo_click(){
-     
         view_clientes.jtf_id_cliente.setText("0");
         view_clientes.jtf_nombre_cliente.setText("");
         view_clientes.jtf_apellido1.setText("");
@@ -79,17 +76,15 @@ public void initView(){
         view_clientes.jtf_direccion.setText("");
         view_clientes.jtf_monto.setText("");
         view_clientes.jtf_fecha_in.setText("");
-       
     }
+     
      public void jbtn_agregar_click(){
-        
         if(view_clientes.jtf_nombre_cliente.getText().isEmpty()){
         JOptionPane.showMessageDialog(null, "Ingrese texto");
         }else{
         setValores();
         model_clientes.insertar();
         ActualizarInterfaz();
-        
         }
     }
     public void jbtn_editar_click(){
@@ -109,8 +104,7 @@ public void initView(){
          
     /*****************************BUSCAR**********************************************/
     public void jbtn_buscar_click(){
-        model_clientes.setBuscar(view_clientes.jtf_buscar.getText());
-        model_clientes.buscar_jtable();
+        model_clientes.buscar("" + view_clientes.jtf_buscar.getText());
         view_clientes.jtb_cliente.setModel(model_clientes.getTabla_clientes());
     }
      /******************************BOTONES NAVEGACION****************************/
@@ -141,15 +135,13 @@ public void initView(){
     
     @Override
     public void focusGained(FocusEvent e) {
-        model_clientes.llenarActualizarDatos();
-        view_clientes.jtb_cliente.setModel(model_clientes.getTabla_clientes());
-        model_clientes.ObtenerClientes();
-        getValores();
+        ActualizarInterfaz();
     }
 
     @Override
     public void focusLost(FocusEvent e) {
-        
+        ActualizarInterfaz();
+        view_clientes.jtf_buscar.setText("");
     }
     
     

@@ -89,7 +89,7 @@ public class ModelMain {
     
     public void Conectar(){
     try{
-        conexion = DriverManager.getConnection("jdbc:mysql://localhost/GYMOLYMPUS","root","1234");
+        conexion = DriverManager.getConnection("jdbc:mysql://localhost/GYMOLYMPUS","root","fernando");
         st = conexion.createStatement();
        
         }catch(SQLException e){
